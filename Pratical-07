@@ -1,0 +1,24 @@
+%{
+//SHRIYA YERANE 24070521197 
+#include <stdio.h>
+int line_number = 0;
+%}
+
+%%
+
+line_number++;
+printf("Line %d ending with com : %s",line_number,yytext);
+}
+
+\.-$ { line_number++; }
+\n { /* Ignore newlines*/ }
+
+%%
+
+int main() {
+yylex();
+return 0;
+}
+int yywrap() {
+return 1;
+}
